@@ -1,6 +1,6 @@
 # cn-llm-query
 
-国内主流大模型 API 信息查询 Skill，支持 Claude Code 和 Hermes Agent。
+国内主流大模型信息查询 Skill，支持 Claude Code 和 Hermes Agent。
 
 ## 功能
 
