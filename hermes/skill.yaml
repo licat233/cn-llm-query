@@ -1,0 +1,75 @@
+# Hermes Skill 标准元数据
+name: 国内大模型查询工具
+id: cn_llm_query_v1
+version: 1.4.0
+description: 查询国内主流大模型的官方API地址、模型标识、免费权益，支持场景推荐、调用代码生成和自学习扩展，所有数据来自厂商官方公开文档
+author: licat
+update_time: 2026-05-05
+icon: "🔍"
+
+# 触发配置
+triggers:
+  - 国内大模型
+  - 大模型API
+  - base_url
+  - 模型标识
+  - 调用代码
+  - 大模型推荐
+  - 免费大模型
+  - LongCat
+  - MiMo
+  - DeepSeek
+  - 通义千问
+  - 智谱
+  - Kimi
+  - 豆包
+  - 混元
+  - 文心一言
+  - 零一万物
+  - InclusionAI
+  - MiniMax
+command: "/llm_query"
+
+# 入参定义
+parameters:
+  type: object
+  properties:
+    action:
+      type: string
+      enum: ["query_info", "recommend", "get_code", "learn"]
+      description: "必填，操作类型：query_info=按厂商/模型查询；recommend=按场景推荐模型；get_code=生成调用代码；learn=自学习写入新厂商数据"
+      required: true
+    provider:
+      type: string
+      description: "选填，要查询的厂商名称，例如：美团LongCat、小米MiMo、DeepSeek、智谱AI"
+      required: false
+    model_name:
+      type: string
+      description: "选填，要查询的具体模型标识，例如：longcat-2.0-preview、deepseek-v4-flash"
+      required: false
+    scene:
+      type: string
+      enum: ["免费日常使用", "代码开发", "长上下文处理", "多模态/视觉", "视频生成", "开源本地化部署", "企业级高并发", "推理/数学计算", "文学/长文本创作"]
+      description: "选填，场景推荐时必填，指定使用场景"
+      required: false
+    protocol:
+      type: string
+      enum: ["openai", "anthropic"]
+      description: "选填，API协议，默认openai"
+      default: "openai"
+      required: false
+    pay_type:
+      type: string
+      enum: ["general", "enterprise"]
+      description: "选填，付费类型：general=通用按量/免费；enterprise=企业包量，默认general"
+      default: "general"
+      required: false
+    provider_data:
+      type: object
+      description: "learn action必填，要写入的新厂商数据，格式：{\"provider\":\"厂商名\",\"models\":[{\"id\":\"model-id\",\"name\":\"模型名\",\"desc\":\"描述\"}],\"base_url\":{\"openai\":{\"general\":\"url\"}},\"official_site\":\"url\",\"chat_url\":\"url\",\"tags\":[\"标签\"],\"remark\":\"备注\"}"
+      required: false
+
+# 执行配置
+entrypoint: "python main.py"
+timeout: 10
+permissions: []
