@@ -1,6 +1,6 @@
 ---
 name: cn-llm-query
-description: '查询国内主流大模型的官方API地址、模型标识、体验入口、免费权益等信息，支持场景化推荐和调用代码生成。触发词：国内大模型、API地址、base_url、模型标识、调用示例、大模型推荐、免费大模型、LongCat、MiMo、DeepSeek、通义千问、智谱、Kimi、豆包、混元、文心一言、零一万物、InclusionAI、MiniMax'
+description: '查询国内主流大模型的官方地址、模型标识、体验入口、免费权益等信息，支持场景化推荐和调用代码生成。触发词：国内大模型、API地址、base_url、模型标识、调用示例、大模型推荐、免费大模型、LongCat、MiMo、DeepSeek、通义千问、智谱、Kimi、豆包、混元、文心一言、零一万物、InclusionAI、MiniMax'
 license: MIT
 metadata:
   author: licat
